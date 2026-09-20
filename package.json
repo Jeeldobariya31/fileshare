@@ -1,0 +1,22 @@
+{
+  "name": "localshare",
+  "version": "1.0.0",
+  "description": "LocalShare - LAN File Sharing System",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\" --names \"SERVER,CLIENT\" --prefix-colors \"cyan,magenta\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "start": "concurrently \"npm run server:prod\" \"npm run client:preview\" --names \"SERVER,CLIENT\"",
+    "server:prod": "cd server && npm start",
+    "client:preview": "cd client && npm run preview"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
